@@ -7,7 +7,7 @@
 \LoadClass{memoir}
 
 % Make sure we can use UTF8 for all documents
-\RequirePackage{ifluatex}
+\RequirePackage{iftex}
 \ifluatex\relax\else\PassOptionsToPackage{utf8}{inputenc}\RequirePackage{inputenc}\fi
 
 % STIX2 Font
@@ -19,3 +19,6 @@
 \RequirePackage{url}
 \RequirePackage{doi}
 \RequirePackage{orcidlink}
+
+% To typeset the logo:
+\RequirePackage{rulogo}
