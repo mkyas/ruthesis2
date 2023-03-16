@@ -1,0 +1,39 @@
+%   	Designed in Tikz By Jóhannes Bergur (johannesg17@ru.is)
+% 	Approved by Ágústa the graphical designer of RU
+\ProvidesPackage{rulogo}[2023/03/16 Logo of HR]
+
+\RequirePackage{tikz}
+\usetikzlibrary{decorations.text}
+
+\definecolor{HRred}{RGB}{230 45 9} 	%Correct color from ru.is
+\definecolor{HRgray}{RGB}{72 72 72} %Correct color from ru.is
+
+\newcommand{\charCommand}[1]{\hspace{0.5mm}#1\hspace{0.5mm}}
+
+\newcommand{\RULogo}[1]{
+  \begin{tikzpicture}[scale=#1, every node/.style={scale=#1}]
+    \useasboundingbox (-6cm, -6cm)rectangle (6cm, 6cm);
+    \clip[overlay] (-6cm, -6cm) rectangle (6cm, 6cm) (0, 0) circle (1.13cm);
+    \pgfmathsetmacro{\firstAngle}{-17} 
+    \pgfmathsetmacro{\lastAngle}{\firstAngle}
+    \foreach \angle/\rad in{43/3.45, 42/4.08,  6/2.1, 26/3.45, 5/2.85, 65/4.08, 4/3.4, 12/2.8, 8.5/0.5, 1.5/3.4, 25/4.08, 9/2.85, 11/2.05, 9/0.5, 45/4.08, 11/3.43, 9/2.85, 24/4.08, 4/2} {
+      \pgfmathsetmacro{\currAngle}{\lastAngle+\angle}
+      \draw [HRred, fill=HRred]  (0,0) --+(\lastAngle:\rad) arc(\lastAngle:\currAngle:\rad)--(0,0);
+      \global\let\lastAngle=\currAngle
+    }
+    {\large \bfseries \fontfamily{qhv}\selectfont
+     \draw [rotate = -2,decorate,decoration={text effects along path,
+	    text={H{Á}SK{Ó}LINN {Í} REYKJAV{Í}K},
+	    text align=center,
+	    text effects/.cd,
+	    text along path, scale text to path,
+	    characters={HRgray,character command=\charCommand}}] {(180:4.8) arc (180:4:4.8) };
+     \draw [rotate = -8,decorate,decoration={text effects along path,
+	    text={REYKJAV{Í}K UNIVERSITY},
+	    text align=center,
+	    text effects/.cd,
+	    text along path, scale text to path,
+	    characters={HRgray,character command=\charCommand}}] {(-163.5:5.4) arc (-163.5:0:5.4) };
+    }
+  \end{tikzpicture}
+}
