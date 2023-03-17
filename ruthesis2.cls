@@ -22,3 +22,33 @@
 
 % To typeset the logo:
 \RequirePackage{rulogo}
+
+% This is to configure the title page by hooking into the maketitle
+% command
+\newcommand{\thedocument}{Dissertation}
+\newcommand{\thedepartment}{Department of Embarrassment}
+\newcommand{\thedegree}{Doctor of Ignorance}
+
+\aliaspagestyle{title}{empty}
+%\renewcommand{\maketitlehooka}{}
+%\renewcommand{\pretitle}{}
+%\renewcommand{\posttitle}{}
+%\renewcommand{maketitlehookb}{}
+%\renewcommand{\preauthor}{}
+%\renewcommand{\postauthor}{}
+\renewcommand{\maketitlehookc}{%
+  \begin{center}
+    {\thedocument} submitted to the\\
+    {\thedepartment} at Reykjavík University\\
+    in partial fulfilment of the requirements for the degree of\\
+    \begingroup\thedegree\endgroup
+  \end{center}}
+%\renewcommand{\predate}{}
+%\renewcommand{\postdate}{}
+\renewcommand{\maketitlehookd}{%
+  \vfill
+  \begin{center}
+    \RULogo{0.2}\\[\baselineskip]
+    Reykjavik University\\
+    Menntavegur 1, 102 Reykjavík, Ísland
+  \end{center}}
