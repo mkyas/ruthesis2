@@ -1,17 +1,103 @@
-\documentclass[a4paper,12pt]{ruthesis2}
+\documentclass[b5paper,10pt]{ruthesis2}
+% Babel is used to handle multi-lingual documents.
+\usepackage[icelandic,main=british]{babel}
+\usepackage{csquotes}
+% The datetime2 package helps in formatting dates.
+\usepackage[useregional]{datetime2}
+% To create the cc icons
+\usepackage{ccicons}
+
+% Include the next package if you have a lot of math to typeset.
+\usepackage{amsmath}
+
+% We recommend biblatex for your library references
+\usepackage[style=ieee]{biblatex}
 
 \begin{document}
 
-\title{Ph.D. Thesis Template}
+\title{Reykjavik University Thesis Template}
 \author{Marcel Kyas\,\orcidlink{0000-0003-1018-3413}}
-\date{2023/03/16}
+% Your defence date in year, month, and day. The last -1 is a day of the week and should remain -1 (ignore)
+\date{\DTMdisplaydate{2023}{03}{15}{-1}}
 
+\thispagestyle{title}
 \maketitle
+\clearpage
 
-\begin{center}
-  \RULogo{0.3333}
-\end{center}
+%% The copyright page
+\thispagestyle{empty}
 
-This is a test
+%% Leiden University does not have the committee on the front but the copyright page.
+\begin{flushleft}
+  \begin{tabular}{ll}
+    \multicolumn{2}{l}{\textbf{Thesis Defense Committee}}
+    \\[.5em]
+    Supervisor : & xxx\\[.5em]
+    Cosupervisors: & xxx \\
+    & \quad\textit{xxx} \\[.5em]
+    & xxx \\
+    & \quad\textit{xxx} \\[.5em]
+    Examiners: & xxx \\
+    & \quad\textit{xxx}\\[.5em]
+    & xxx \\
+    & \quad\textit{xxx}\\[.5em]
+  \end{tabular}
+\end{flushleft}
+
+
+\vfill
+\begin{flushleft}
+  {\thetitle} \\[\baselineskip]
+  {\theauthor} (ORCID 0000-0012-3456-7890)\\[\baselineskip]
+
+  ISBN 978-9935-xxxx-x-x Print version\\
+  ISBN 978-9935-xxxx-x-x Electronic version\\
+\end{flushleft}
+
+\bigskip\noindent Copyright \textcopyright{} \the\year{} \ccbyncnd
+
+\begingroup\bigskip\noindent 
+This work is licensed under the Creative Commons Attribution-NonCom-\linebreak mercial-NoDerivatives 4.0 International License.
+To view a copy of this license, visit \href{http://creativecommons.org/licenses/by-nc-nd/4.0/}{http://creativecommons.org/licenses/by-nc-nd/4.0/} or send a letter to Creative Commons, PO Box 1866, Mountain View, CA 94042, USA.
+
+The images or other third party material in this work are included in the work's Creative Commons license unless indicated otherwise in a credit line to the material.
+If material is not included in the work's Creative Commons license, and your intended use is not permitted by statutory regulation or exceeds the permitted use, you must obtain permission directly from the copyright holder.
+
+The use of general descriptive names, registered names, trademarks, service marks, etc., in this publication does not imply, even without a specific statement, that such names are exempt from the relevant protective laws and regulations and, therefore, free for general use.
+\endgroup
+
+\frontmatter
+
+% Your English abstract goes into the abstract environment below.
+\clearpage\selectlanguage{british}
+\begin{abstract}
+    foo bar baz
+\end{abstract}
+
+% Your Icelandic abstract goes into the abstract environment below.
+\clearpage\selectlanguage{icelandic}
+\begin{abstract}
+    foo bar baz
+\end{abstract}
+
+% We need to tell LaTeX that the subsequent text is in English.
+\clearpage\selectlanguage{british}
+
+\tableofcontents
+
+\chapter*{Acknowledgements}
+
+Contributions of non-authors, funding agencies, and so forth should go here.
+
+You can use some modest space to thank your friends here.
+
+
+\chapter{Introduction}
+
+We show the frobnication equation in \eqref{eq:frobnication}.
+\begin{equation}
+    \label{eq:frobnication}
+    \int\vec{o}(x)dx
+\end{equation}
 
 \end{document}
