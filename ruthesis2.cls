@@ -8,12 +8,28 @@
 
 % Make sure we can use UTF8 for all documents
 \RequirePackage{iftex}
-\ifluatex\relax\else\PassOptionsToPackage{utf8}{inputenc}\RequirePackage{inputenc}\fi
+\ifLuaTeX\relax\else\PassOptionsToPackage{utf8}{inputenc}\RequirePackage{inputenc}\fi
 
 % STIX2 Font
+\ifLuaTeX
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
+\setmathfont{STIXTwoMath-Regular}[
+Extension={.otf},
+Scale=1]
+\setmainfont{STIXTwoText}[
+Extension={.otf},
+UprightFont={*-Regular},
+BoldFont={*-Bold},
+ItalicFont={*-Italic},
+BoldItalicFont={*-BoldItalic}]
+\else
+% We only support a subset of the needed characters
+% with pdflatex. Be prepared that some characters may be missing from the output.
 \RequirePackage{stix2}
 \PassOptionsToPackage{T1}{fontenc}
 \RequirePackage{fontenc}
+\fi
 
 % Provide commands for referencing web resources.
 \RequirePackage{url}
